@@ -10,7 +10,7 @@ const defineFileName = fileExtension => isProductionMode ? `bundle.[hash:base64]
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development', //default mode btw
-    entry: './main.js',
+    entry: ['babel-polyfill', './main.js'],
     output: {
         filename: defineFileName('js'),
         path: path.resolve(__dirname, 'dist')
