@@ -22,6 +22,11 @@ module.exports = {
             '@core': path.resolve(__dirname, 'src/core'),
         }
     },
+    devtool: !isProductionMode ? 'source-map' : false,
+    devServer: {
+        port: 3000,
+        hot: !isProductionMode
+    },
     plugins: [
         new CleanWebpackPlugin.CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
