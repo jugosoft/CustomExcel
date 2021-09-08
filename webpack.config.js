@@ -27,7 +27,11 @@ module.exports = {
             template: 'index.html',
             minify: {
                 removeComments: isProductionMode,
-                collapseWhitespace: isProductionMode
+                collapseWhitespace: isProductionMode,
+                continueOnParseError: !isProductionMode,
+                removeAttributeQuotes: isProductionMode,
+                removeEmptyElements: isProductionMode,
+                removeEmptyAttributes: isProductionMode
             }
         }),
         new CopyPlugin({
