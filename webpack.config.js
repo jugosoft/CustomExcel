@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+const isProductionMode = process.env.NODE_ENV === 'production';
+
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development', //default mode btw
@@ -22,7 +24,11 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin.CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: 'index.html'
+            template: 'index.html',
+            minify: {
+                removeComments: isProductionMode,
+                collapseWhitespace: isProductionMode
+            }
         }),
         new CopyPlugin({
             patterns: [
