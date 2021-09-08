@@ -5,13 +5,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 const isProductionMode = process.env.NODE_ENV === 'production';
+const defineFileName = fileExtension => isProductionMode ? `bundle.[hash:base64].${fileExtension}` : `bundle.${fileExtension}`;
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development', //default mode btw
     entry: './main.js',
     output: {
-        filename: 'bundle.[hash:base64].js',
+        filename: defineFileName('js'),
         path: path.resolve(__dirname, 'dist')
     },
     resolve: {
@@ -43,7 +44,7 @@ module.exports = {
             ]
         }),
         new MiniCssExtractPlugin({
-            filename: 'bundle.[hash:base64].css'
+            filename: defineFileName('css'),
         })
     ],
     module: {
