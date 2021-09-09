@@ -3,4 +3,22 @@
 
 .excel__toolbar {
 
+    position: absolute;
+
+    background-color: $toolbar-colour;
+    left: 0;
+    right: 0;
+    top: $header-height; /*Относительно позиции header'а*/
+    height: $toolbar-height;
+
+    border-top: 1px solid $border-colour;
+    border-bottom: 1px solid $border-colour;
+
+    display: flex;
+    padding: 10px 15px 15px;
+
+    & .button {
+        @include generic-button(red, 25px);
+        margin-top: 0; /*Перезапишем свойство*/
+    }
 }
