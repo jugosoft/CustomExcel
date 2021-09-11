@@ -9,6 +9,7 @@
     margin: 5px;
 
     &:hover {
+        cursor: pointer;
         color: $button-colour-hover;
         background-color: $button-background-hover;
     }
