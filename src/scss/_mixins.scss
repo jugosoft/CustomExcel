@@ -1,0 +1,21 @@
+@import "variables";
+
+@mixin generic-button($colour: $button-default-colour, $size: $button-default-size) {
+    color: $colour;
+    height: $size;
+    width: $size;
+
+    display: inline-block;
+    margin: 5px;
+
+    &:hover {
+        cursor: pointer;
+        color: $button-colour-hover;
+        background-color: $button-background-hover;
+    }
+
+    &:active, &.active {
+        color: $colour;
+      }
+
+}
